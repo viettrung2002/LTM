@@ -23,16 +23,8 @@
 </head>
 
 <body>
-	<%String maNV = request.getParameter("maNV");
-		String NV = maNV.substring(0, 2);
-		String maNVmoi;
-		String So = maNV.substring(2);
-		int So_int = Integer.parseInt(So) + 1;
-		if (So_int <= 9){
-			maNVmoi = NV + "0" + So_int;
-		} else {
-			maNVmoi = NV + So_int;
-		}
+	<%
+        String maNVmoi = (String)request.getAttribute("maNVmoi");
 	%>
     <div class="main">
         <div class="grid wide">
@@ -41,7 +33,7 @@
                     <div class="header-left-wrap">
                     <a href="TestAdmin_Servlet">
                         <img src="./assetss/img/logo.png" class="header-logo"
-                            alt="Logo pizza">
+                            >
                     </a>
                     </div>
                     <div class="header-navbar-function">
@@ -57,15 +49,12 @@
                             <div class="account-logo">
                                 <iconify-icon icon="ph:user-circle-bold" class="account-icon-login"></iconify-icon>
                             </div>
-                            <div class="account-login-and-register">
-                                <a href="TestAdmin_Servlet" class="account-login">Tài khoản</a>
-                                <span>/</span>
-                            </div>
+                            
                         </div>
                     </div>
 
                 </div>
-                <div class="header-navbar">
+                <div class="header-navbar" >
                     <div class="header-navbar-menu-type">
                     	
                   		<a href="" class="header-navbar-menu">Tài khoản cá nhân</a>
@@ -82,7 +71,7 @@
                         Thêm sản phẩm
                     </h2>
 
-                    <form action="AddSanPham_Servlet" method="post" class="form-login" >
+                    <form action="HandleAddSanPham" method="post" class="form-login" >
                         <div class="form-input-group">
                             <div class="form-label">Mã sản phẩm</div>
                             <input type="text" value="<%=maNVmoi %>" placeholder="Nhập mã sản phẩm tại đây" name="maSanPham" class="form-input" readonly="readonly">
@@ -101,7 +90,7 @@
                         </div>
                         <div class="form-input-group">
                             <div class="form-label">Giá sản phẩm</div>
-                            <input type="text" placeholder="Hình ảnh sản phẩm" name="giaSanPham" class="form-input">
+                            <input type="text" placeholder="Giá bán sản phẩm" name="giaSanPham" class="form-input">
                         </div>
                         <div class="form-input-group">
                             <div class="form-label">Mô tả</div>

@@ -78,8 +78,8 @@
                     style="display: flex;border-bottom:3px solid var(--primary-color);margin-top: 30px ;margin-bottom: 20px;border-width: 2px; justify-content: space-between; flex-direction: row;">
                     	<span style = "font-size: 30px;margin-top: 10px">Tất cả sản phẩm</span>
                    <div class="product-more" >
-                   <% String maNV = (String)request.getAttribute("maNV"); %>
-	                    <a href="AddSanPham.jsp?maNV=<%=maNV%>" class="product-more-link">Tạo sản phẩm mới </a>
+                   
+	                    <a href="AddSanPham_Servlet" class="product-more-link">Tạo sản phẩm mới </a>
 	                    <iconify-icon icon="material-symbols:add" class="account-icon"></iconify-icon>
 
                 </div>

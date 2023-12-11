@@ -30,26 +30,30 @@ public class AddSanPham_Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		try {
-//			String destination = null;
-//			
-//			String MaSanPham = request.getParameter("maSanPham");
-//			String TenSanPham = request.getParameter("tenSanPham");
-//			String TheLoai = request.getParameter("theloaiSanPham");
-//			String Gia = request.getParameter("giaSanPham");
-//			String MoTa = request.getParameter("motaSanPham");
-//			String Anh = request.getParameter("hinhanhSanPham");
-//			
-//			sanpham_bo bo = new sanpham_bo();
-//			bo.addSanPham(MaSanPham, TenSanPham, TheLoai, Gia, MoTa, Anh, "active");
-//			destination = "/index.jsp";
-//			RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
+		try {
+			sanpham_bo SanPhamBO = new sanpham_bo();
+			String destination = null;
+			String maNV = SanPhamBO.GetSanPhamCuoi();
+			System.out.println("Ma nhan vien: "+ maNV);
+			String NV = maNV.substring(0, 2);
+			String maNVmoi;
+			String So = maNV.substring(2);
+			int So_int = Integer.parseInt(So) + 1;
+			if (So_int <= 9){
+				maNVmoi = NV + "0" + So_int;
+			} else {
+				maNVmoi = NV + So_int;
+			}
+			request.setAttribute("maNVmoi", maNVmoi);	
+			destination = "/AddSanPham.jsp";
+			RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
+			rd.forward(request,response);
 //			response.sendRedirect(destination);
-//		} catch (Exception e) 
-//		{
-//			System.out.println("update error");
-//		}
-//	}
+		} catch (Exception e) 
+		{
+			System.out.println("update error");
+			
+		}
 	}
 
 	/**
@@ -57,19 +61,21 @@ public class AddSanPham_Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			sanpham_bo SanPhamBO = new sanpham_bo();
 			String destination = null;
-			
-			String MaSanPham = request.getParameter("maSanPham");
-			String TenSanPham = request.getParameter("tenSanPham");
-			String TheLoai = request.getParameter("theloaiSanPham");
-			String Gia = request.getParameter("giaSanPham");
-			String MoTa = request.getParameter("motaSanPham");
-			String Anh = request.getParameter("hinhanhSanPham");
-			String role = "admin";
-			sanpham_bo bo = new sanpham_bo();
-			bo.addSanPham(MaSanPham, TenSanPham, TheLoai, Gia, MoTa, Anh, "active");
-			request.setAttribute("role", role);
-			destination = "/TestAdmin_Servlet";
+			String maNV = SanPhamBO.GetSanPhamCuoi();
+			System.out.println("Ma nhan vien: "+ maNV);
+			String NV = maNV.substring(0, 2);
+			String maNVmoi;
+			String So = maNV.substring(2);
+			int So_int = Integer.parseInt(So) + 1;
+			if (So_int <= 9){
+				maNVmoi = NV + "0" + So_int;
+			} else {
+				maNVmoi = NV + So_int;
+			}
+			request.setAttribute("maNVmoi", maNVmoi);	
+			destination = "/AddSanPham.jsp";
 			RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
 			rd.forward(request,response);
 //			response.sendRedirect(destination);

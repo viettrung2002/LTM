@@ -30,8 +30,10 @@
             <div class="main-header">
                 <div class="header">
                     <div class="header-left-wrap">
+                         <a href="TestAdmin_Servlet">
                         <img src="./assetss/img/logo.png" class="header-logo"
                             >
+                    </a>
                     </div>
                     <div class="header-navbar-function">
                         <div class="header-navbar-search">
@@ -46,10 +48,7 @@
                             <div class="account-logo">
                                 <iconify-icon icon="ph:user-circle-bold" class="account-icon-login"></iconify-icon>
                             </div>
-                            <div class="account-login-and-register">
-                                <a href="Login.jsp" class="account-login">Đăng nhập</a>
-                                <span>/</span>
-                            </div>
+                            
                         </div>
                     </div>
 

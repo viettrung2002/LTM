@@ -68,8 +68,7 @@ public class TaiKhoan_Servlet extends HttpServlet {
 			taikhoan taiKhoan = TaiKhoanBO.GetTaiKhoanByUserName(tenTK);
 			request.setAttribute("taiKhoan", taiKhoan);
 			System.out.println(taiKhoan.getMaNguoiDung());
-			String maNV = SanPhamBO.GetSanPhamCuoi();
-			request.setAttribute("maNV", maNV);
+			
 			if(checkBO.isAdminRole(tenTK,password)) {
 				destination = "/Admin.jsp";
 			}else {
